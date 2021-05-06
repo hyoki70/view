@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>eelテスト</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h2>eelテスト</h2>
+        CSVファイル名<input id="csv_name" type="text"></input><br/>
+        検索ワード<input id="kensaku_word" type="text"></input>
+        <button id="search">検索</button><br/>
+        <textarea class="word_view" id="kensaku_word_view"> </textarea>
+        <script type="text/javascript" src="./eel.js"></script>
+        <script>
+            search.addEventListener('click', () => {
+                if(kensaku_word.value == ""){
+                    alert("入力がありません")
+                }
+                else{
+                    eel.kimetsu_search(kensaku_word.value,csv_name.value)
+                }
+            })
+
+            eel.expose(view_log_js)
+            function view_log_js(text){
+                kensaku_word_view.value += text + "\n"
+            }
+        </script>
+    </body>
+</html>
